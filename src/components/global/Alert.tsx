@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Alert as BootstrapAlert } from 'react-bootstrap';
 
 enum MessageType {
@@ -21,9 +21,9 @@ const Alert: React.FC<MessageProps> = ({ message, type = MessageType.INFO }) => 
     }
 
     return (
-        <BootstrapAlert
-            variant={type}
-            onClose={() => setShow(false)}
+        <BootstrapAlert 
+            variant={type} 
+            onClose={() => setShow(false)} 
             dismissible
             style={{ position: 'fixed', bottom: 0, right: 0, width: 'auto', zIndex: 9999 }}
             className='rounded-0'>

@@ -1,4 +1,4 @@
-import { Team } from '../modules/ekipa.module.ts';
+import { Team } from './../modules/team.module';
 
 const team0: Team = new Team({
     id: 0,
@@ -20,7 +20,7 @@ const team0: Team = new Team({
         id: 2,
         validity: 1
     },
-    player: [
+    players: [
         {
             firstName: 'Cristiano',
             lastName: 'Ronaldo',
@@ -71,7 +71,7 @@ const team1: Team = new Team({
         id: 27,
         validity: 1
     },
-    player: [
+    players: [
         {
             firstName: 'Cristiano',
             lastName: 'Ronaldo',
@@ -122,7 +122,7 @@ const team2: Team = new Team({
         id: 32,
         validity: 1
     },
-    player: [
+    players: [
         {
             firstName: 'Lionel',
             lastName: 'Messi',
@@ -173,7 +173,7 @@ const team3: Team = new Team({
         id: 37,
         validity: 1
     },
-    player: [
+    players: [
         {
             firstName: 'Zlatan',
             lastName: 'Ibrahimović',
@@ -224,7 +224,7 @@ const team4: Team = new Team({
         id: 42,
         validity: 1
     },
-    player: [
+    players: [
         {
             firstName: 'N\'Golo',
             lastName: 'Kanté',

@@ -1,0 +1,18 @@
+.header {
+    position: fixed;
+    top: 0;
+}
+
+.main {
+    margin-top: 64px;
+    margin-bottom: 64px;
+}
+
+.footer {
+    position: fixed;
+    bottom: 0;
+}
+
+.text-center {
+    text-align: center;
+}

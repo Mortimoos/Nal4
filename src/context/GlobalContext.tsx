@@ -1,11 +1,11 @@
 import React, { createContext, useState } from 'react';
-import Team from "../modules/ekipa.module.ts";
-import initialTeams from '../data/ekipe.ts';
+import Team from '../modules/team.module';
+import initialTeams from '../temp/ekipe';
 
 export const GlobalContext = createContext<{
     teams: Team[];
     selectedTeam: Team | null;
-    setSelectedTeam: (team: Team | null) => void;
+    setSelectedTeam: (team: Team | null) => void; 
 }>({
     teams: initialTeams,
     selectedTeam: null,

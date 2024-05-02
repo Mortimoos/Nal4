@@ -1,7 +1,6 @@
 // const version = process.env.VERSION || '1.0.0';
-
-import { Container } from "react-bootstrap";
 import { config } from "../../configuration/config.ts";
+import { Container } from "react-bootstrap";
 
 const Noga: React.FC = () => {
     return (

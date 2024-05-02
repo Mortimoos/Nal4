@@ -1,17 +1,21 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect} from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { GlobalContext } from '../context/GlobalContext';
 import { Card, Row, Col, Container, Button } from 'react-bootstrap';
-import Team from "../modules/ekipa.module.ts";
-import Oseba from "./Oseba.tsx";
+import Person from './Person';
+import Team from '../modules/team.module';
 
-
+/**
+ * Renders the details of a team.
+ * @component
+ */
 const TeamDetails: React.FC = () => {
     const { teams, selectedTeam, setSelectedTeam } = useContext(GlobalContext);
     const { id } = useParams<{ id: string }>();
 
     const team = teams.find((team: Team) => team.id?.toString() === id);
 
+    // useEffect to update the selected team in the context
     useEffect(() => {
         if (team) {
             setSelectedTeam(team);
@@ -48,19 +52,21 @@ const TeamDetails: React.FC = () => {
             <Row className="mb-3">
                 <Col md={6}>
                     <h5 className="text-center">Coach</h5>
-                    <Oseba data={team.trainer} />
+                    <Person data={team.trainer} />
                 </Col>
                 <Col md={6}>
                     <h5 className="text-center">Manager</h5>
-                    <Oseba data={team.director} />
+                    <Person data={team.director} />
                 </Col>
             </Row>
             <Row>
                 <h5 className="text-center mb-4">Players</h5>
-                {team.player && team.player.length > 0 ? (
-                    team.player.map((player) => (
+                {team.players && team.players.length > 0 ? (
+                    team.players.map((player) => (
                         <Col lg={4} md={6} key={player.id} className="p-2">
-                            <Oseba data={player} />
+                            <Person data={player} />
+                            {/* <Player name={`${player.firstName} ${player.lastName}`} number={player.id} />  */}
+                            {/* ***Player is deprecated*** */}
                         </Col>
                     ))
                 ) : (
