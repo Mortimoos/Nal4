@@ -1,51 +1,44 @@
-import {createBrowserRouter, Link, Outlet, RouterProvider, useParams} from 'react-router-dom';
-import React from "react";
-import Ekipa from "./components/Ekipa.tsx";
+import {createBrowserRouter, Outlet, RouterProvider} from 'react-router-dom';
+import React, {useContext} from "react";
 import {GlobalContext} from "./context/GlobalContext.tsx";
+import Header from "./components/global/Header.tsx";
+import Noga from "./components/global/Noga.tsx";
+import Body from "./components/global/Body.tsx";
+import Teams from "./components/Ekipa.tsx";
+import teams from "./data/ekipe.ts";
+import TeamDetails from "./components/EkipaDet.tsx";
 
-const router = createBrowserRouter([
-    {
-        path: '/',
-        element: <SeznamEkip ekipa={teamData.ekipa}/>
-    },
-    {
-        path: '/team/:id',
-        element: <TeloWrapper />
-    }
-])
+const MainLayout: React.FC = () => {
+    const { selectedTeam } = useContext(GlobalContext);
 
-export function TeloWrapper() {
-    const {id} = useParams();
-    const teamId = parseInt(id);
-    // const ekipa = teamData.ekipa.map((ekipa, index) => ({id: index + 1, ekipa})); //mapped id to index position
+    return (
+        <>
+            <Header team={selectedTeam} />
+            <Body team={selectedTeam} />
+            <div className="my-3">
+                <Outlet />
+            </div>
+            <Noga />
+        </>
+    );
+};
 
-    const team = teamData.ekipa.find(team => team.id === teamId);
+const App: React.FC = () => {
+    const router = createBrowserRouter([
+        {
+            path: '/',
+            element: <MainLayout />,
+            children: [
+                { index: true, element: <Teams teams={teams} /> },
+                { path: 'team/:id', element: <TeamDetails /> }
+            ]
+        }
+    ]);
 
-    console.log(team)
-
-
-    return (<div>
-        <Menu ekipa={team}/>
-        <Telo ekipa={team}/>
-        <Noga className="menu"/>
-    </div>)
-}
-
-function App() {
-    console.log("BLA",teamData.ekipa);
-
-    return <div>
-        <ul>
-            {teamData.ekipa.map((team, index) => (
-                <li key={index}>
-                    <Link to={`/team/${team.id}`}>{team.ime}</Link>
-                </li>
-            ))}
-        </ul>
-        <Outlet/>
-    </div>
-
-}
+    return (
+        <RouterProvider router={router} />
+    );
+};
 
 export default App;
 
