@@ -7,7 +7,6 @@ import {config} from "../../configuration/config.ts";
 import {Alert, MessageType} from "./Alert.tsx";
 import {IoMdHome, IoMdAdd} from "react-icons/io";
 
-
 interface HeaderProps {
     team: Team | null;
 }
@@ -15,7 +14,7 @@ interface HeaderProps {
 const Header: React.FC<HeaderProps> = ({team}) => {
     const navigate = useNavigate();
     const {setSelectedTeam} = useContext(GlobalContext);
-    const [showModal, setShowModal] = useState(false);
+    const [, setShowModal] = useState(false);
 
     function GoHome(): void {
         setSelectedTeam(null);
@@ -23,7 +22,7 @@ const Header: React.FC<HeaderProps> = ({team}) => {
     }
 
     return (
-        <Navbar bg="dark" variant="dark" expand="lg" className="border-bottom">
+        <Navbar bg="dark" variant="dark" expand="lg">
             <Container>
                 <Navbar.Brand>
                     {team ? team.name : config.app.ime}

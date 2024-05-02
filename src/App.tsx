@@ -7,6 +7,8 @@ import Body from "./components/global/Body.tsx";
 import Teams from "./components/Ekipa.tsx";
 import teams from "./data/ekipe.ts";
 import TeamDetails from "./components/EkipaDet.tsx";
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 const MainLayout: React.FC = () => {
     const { selectedTeam } = useContext(GlobalContext);
