@@ -1,21 +1,16 @@
 import React, { useContext, useEffect} from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { GlobalContext } from '../context/GlobalContext';
+import { GlobalniKontekst } from '../context/GlobalniKontekst.tsx';
 import { Card, Row, Col, Container, Button } from 'react-bootstrap';
-import Person from './Person';
-import Team from '../modules/team.module';
+import Oseba from './Oseba.tsx';
+import Ekipa from '../modules/ekipa.module.ts';
 
-/**
- * Renders the details of a team.
- * @component
- */
 const TeamDetails: React.FC = () => {
-    const { teams, selectedTeam, setSelectedTeam } = useContext(GlobalContext);
+    const { teams, selectedTeam, setSelectedTeam } = useContext(GlobalniKontekst);
     const { id } = useParams<{ id: string }>();
 
-    const team = teams.find((team: Team) => team.id?.toString() === id);
+    const team = teams.find((team: Ekipa) => team.id?.toString() === id);
 
-    // useEffect to update the selected team in the context
     useEffect(() => {
         if (team) {
             setSelectedTeam(team);
@@ -23,7 +18,6 @@ const TeamDetails: React.FC = () => {
     }, [team, setSelectedTeam]);
 
     useEffect(() => {
-        // Silence is golden...
     }, [selectedTeam]);
 
     if (!team) {
@@ -52,11 +46,11 @@ const TeamDetails: React.FC = () => {
             <Row className="mb-3">
                 <Col md={6}>
                     <h5 className="text-center">Coach</h5>
-                    <Person data={team.trainer} />
+                    <Oseba data={team.trainer} />
                 </Col>
                 <Col md={6}>
                     <h5 className="text-center">Manager</h5>
-                    <Person data={team.director} />
+                    <Oseba data={team.director} />
                 </Col>
             </Row>
             <Row>
@@ -64,7 +58,7 @@ const TeamDetails: React.FC = () => {
                 {team.players && team.players.length > 0 ? (
                     team.players.map((player) => (
                         <Col lg={4} md={6} key={player.id} className="p-2">
-                            <Person data={player} />
+                            <Oseba data={player} />
                             {/* <Player name={`${player.firstName} ${player.lastName}`} number={player.id} />  */}
                             {/* ***Player is deprecated*** */}
                         </Col>

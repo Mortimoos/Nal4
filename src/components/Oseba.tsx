@@ -1,12 +1,12 @@
 import React from 'react';
 import { Card } from 'react-bootstrap';
-import { Official, Player } from '../modules/person.module';
+import { Uradnik, Igralec } from '../modules/oseba.module.ts';
 
 type PersonProps = {
-    data: Official | Player | undefined;
+    data: Uradnik | Igralec | undefined;
 };
 
-const Person: React.FC<PersonProps> = ({ data }) => {
+const Oseba: React.FC<PersonProps> = ({ data }) => {
     return (
         <>
             {data ? (
@@ -29,4 +29,4 @@ const Person: React.FC<PersonProps> = ({ data }) => {
     );
 };
 
-export default Person;
+export default Oseba;

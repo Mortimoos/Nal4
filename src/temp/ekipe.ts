@@ -1,8 +1,8 @@
-import { Team } from './../modules/team.module';
+import { Ekipa } from '../modules/ekipa.module.ts';
 
-const team0: Team = new Team({
+const team0: Ekipa = new Ekipa({
     id: 0,
-    name: 'Manchester United',
+    ime: 'Manchester United',
     yearEstablished: 1878,
     director: {
         firstName: 'John',
@@ -51,9 +51,9 @@ const team0: Team = new Team({
     ]
 });
 
-const team1: Team = new Team({
+const team1: Ekipa = new Ekipa({
     id: 1,
-    name: 'Juventus',
+    ime: 'Juventus',
     yearEstablished: 1897,
     director: {
         firstName: 'Andrea',
@@ -102,9 +102,9 @@ const team1: Team = new Team({
     ]
 });
 
-const team2: Team = new Team({
+const team2: Ekipa = new Ekipa({
     id: 2,
-    name: 'Paris Saint-Germain',
+    ime: 'Paris Saint-Germain',
     yearEstablished: 1970,
     director: {
         firstName: 'Nasser',
@@ -153,9 +153,9 @@ const team2: Team = new Team({
     ]
 });
 
-const team3: Team = new Team({
+const team3: Ekipa = new Ekipa({
     id: 3,
-    name: 'AC Milan',
+    ime: 'AC Milan',
     yearEstablished: 1899,
     director: {
         firstName: 'Paolo',
@@ -204,9 +204,9 @@ const team3: Team = new Team({
     ]
 });
 
-const team4: Team = new Team({
+const team4: Ekipa = new Ekipa({
     id: 4,
-    name: 'Chelsea',
+    ime: 'Chelsea',
     yearEstablished: 1905,
     director: {
         firstName: 'Bruce',
@@ -255,6 +255,129 @@ const team4: Team = new Team({
     ]
 });
 
-const teams: Team[] = [team0, team1, team2, team3, team4];
+const team5: Ekipa = new Ekipa({
+    id: 5,
+    ime: 'Real Madrid',
+    yearEstablished: 1902,
+    director: {
+        firstName: 'Florentino',
+        lastName: 'Pérez',
+        birthYear: 1947,
+        role: 'President',
+        id: 46,
+        validity: 1
+    },
+    trainer: {
+        firstName: 'Carlo',
+        lastName: 'Ancelotti',
+        birthYear: 1959,
+        role: 'Head Coach',
+        id: 47,
+        validity: 1
+    },
+    players: [
+        {
+            firstName: 'Karim',
+            lastName: 'Benzema',
+            birthYear: 1987,
+            height: 185,
+            weight: 79,
+            injured: false,
+            id: 48
+        },
+        {
+            firstName: 'Sergio',
+            lastName: 'Ramos',
+            birthYear: 1986,
+            height: 184,
+            weight: 82,
+            injured: false,
+            id: 49
+        },
+        {
+            firstName: 'Luka',
+            lastName: 'Modrić',
+            birthYear: 1985,
+            height: 172,
+            weight: 66,
+            injured: false,
+            id: 50
+        },
+        {
+            firstName: 'Toni',
+            lastName: 'Kroos',
+            birthYear: 1990,
+            height: 183,
+            weight: 76,
+            injured: false,
+            id: 51
+        },
+        {
+            firstName: 'Casemiro',
+            lastName: 'Casemiro',
+            birthYear: 1992,
+            height: 185,
+            weight: 84,
+            injured: false,
+            id: 52
+        },
+        {
+            firstName: 'Eden',
+            lastName: 'Hazard',
+            birthYear: 1991,
+            height: 175,
+            weight: 74,
+            injured: false,
+            id: 53
+        },
+        {
+            firstName: 'Marco',
+            lastName: 'Asensio',
+            birthYear: 1996,
+            height: 182,
+            weight: 76,
+            injured: false,
+            id: 54
+        },
+        {
+            firstName: 'Raphaël',
+            lastName: 'Varane',
+            birthYear: 1993,
+            height: 191,
+            weight: 81,
+            injured: false,
+            id: 55
+        },
+        {
+            firstName: 'Ferland',
+            lastName: 'Mendy',
+            birthYear: 1995,
+            height: 180,
+            weight: 73,
+            injured: false,
+            id: 56
+        },
+        {
+            firstName: 'Vinicius',
+            lastName: 'Jr.',
+            birthYear: 2000,
+            height: 176,
+            weight: 73,
+            injured: false,
+            id: 57
+        },
+        {
+            firstName: 'Rodrygo',
+            lastName: 'Goes',
+            birthYear: 2001,
+            height: 174,
+            weight: 65,
+            injured: false,
+            id: 58
+        }
+    ]
+});
+
+const teams: Ekipa[] = [team0, team1, team2, team3, team4, team5];
 
 export default teams;

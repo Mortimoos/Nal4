@@ -1,13 +1,13 @@
 import React from 'react';
-import Team from '../modules/team.module';
+import Ekipa from '../modules/ekipa.module.ts';
 import { Button, Card, Col, Container, Row } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 interface TeamsProps {
-    teams: Team[];
+    teams: Ekipa[];
 }
 
-const Teams: React.FC<TeamsProps> = ({ teams }) => {
+const Ekipe: React.FC<TeamsProps> = ({ teams }) => {
     return (
         <Container className="bg-dark text-white py-5">
             <h1 className="text-center mb-4">Teams</h1>
@@ -32,4 +32,4 @@ const Teams: React.FC<TeamsProps> = ({ teams }) => {
     );
 };
 
-export default Teams;
+export default Ekipe;

@@ -1,20 +1,21 @@
 import React, { useContext } from 'react';
 import { createBrowserRouter, Outlet, RouterProvider } from 'react-router-dom';
-import { GlobalContext } from './context/GlobalContext';
-import Teams from './components/Teams';
+import { GlobalniKontekst } from './context/GlobalniKontekst.tsx';
+import Ekipe from './components/Ekipe.tsx';
 import TeamDetails from './components/TeamDetails';
-import Header from './components/global/Header';
+import HeaderBody from './components/global/HeaderBody.tsx';
 import Footer from './components/global/Footer';
 import teams from './temp/ekipe';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './App.css'
 
 
 const MainLayout: React.FC = () => {
-  const { selectedTeam } = useContext(GlobalContext);
+  const { selectedTeam } = useContext(GlobalniKontekst);
 
   return (
     <>
-      <Header team={selectedTeam} />
+      <HeaderBody team={selectedTeam} />
       <div className="my-3">
         <Outlet />
       </div>
@@ -29,7 +30,7 @@ const App: React.FC = () => {
       path: '/',
       element: <MainLayout />,
       children: [
-        { index: true, element: <Teams teams={teams} /> },
+        { index: true, element: <Ekipe teams={teams} /> },
         { path: 'team/:id', element: <TeamDetails /> }
       ]
     }
